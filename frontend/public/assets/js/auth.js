@@ -36,16 +36,19 @@ function requireSession() {
  * simulates an instant login so the demo is always fully functional.
  */
 async function performLogin() {
-  if (window.SCMS_CONFIG.firebaseAuthAvailable) {
-    const cred = await firebase.auth().signInAnonymously();
-    const idToken = await cred.user.getIdToken();
+  try {
+    // Login through the Express backend
+    await api.post("/login", {});
 
-    try {
-      await api.post("/login", { idToken });
-    } catch (err) {
-      console.warn("[auth] Backend login sync failed, continuing client-side.", err);
-    }
-
+    saveSession({
+      uid: "demo-user",
+      provider: "backend",
+      ...ADMIN_PROFILE,
+    });
+  } catch (err) {
+    throw new Error("Login failed. Please try again.");
+  }
+}
     saveSession({ uid: cred.user.uid, provider: "firebase", ...ADMIN_PROFILE });
     return;
   }
@@ -60,8 +63,7 @@ async function performLogout() {
     if (window.SCMS_CONFIG.firebaseAuthAvailable && firebase.auth().currentUser) {
       await firebase.auth().signOut();
     }
-  } finally {
-    clearSession();
-    window.location.href = "index.html";
-  }
+  }async function performLogout() {
+  clearSession();
+  window.location.href = "index.html";
 }
