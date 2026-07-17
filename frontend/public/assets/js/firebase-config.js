@@ -15,7 +15,7 @@ const firebaseConfig = {
 // Base URL of the Express backend API.
 // Serving frontend through the same Express app ensures the default
 // API path works without needing the host name.
-const API_BASE_URL = "/api";
+const API_BASE_URL = "https://course-management-system-0z6g.onrender.com/api";
 
 let firebaseApp = null;
 let firebaseAuthAvailable = false;
@@ -32,4 +32,7 @@ try {
   console.warn("[firebase-config] Firebase not initialized, using demo mode.", err);
 }
 
-window.SCMS_CONFIG = { API_BASE_URL, firebaseAuthAvailable };
+window.SCMS_CONFIG = {
+    API_BASE_URL: "https://course-management-system-0z6g.onrender.com/api",
+    firebaseAuthAvailable: true
+};
