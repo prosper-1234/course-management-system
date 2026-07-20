@@ -35,11 +35,13 @@ function injectProfile(session) {
   const nameTargets = document.querySelectorAll("[data-admin-name]");
   const emailTargets = document.querySelectorAll("[data-admin-email]");
   const matricTargets = document.querySelectorAll("[data-admin-matric]");
+  const departmentTargets = document.querySelectorAll("[data-admin-department]");
   const initialsTargets = document.querySelectorAll("[data-admin-initials]");
 
   const name = session?.user?.name || ADMIN_PROFILE.name;
   const email = session?.user?.email || ADMIN_PROFILE.email;
   const matric = session?.user?.matricNumber || ADMIN_PROFILE.matricNumber;
+  const department = session?.user?.department || ADMIN_PROFILE.department;
   const initials = name
     .split(" ")
     .map((w) => w[0])
@@ -50,11 +52,12 @@ function injectProfile(session) {
   nameTargets.forEach((el) => (el.textContent = name));
   emailTargets.forEach((el) => (el.textContent = email));
   matricTargets.forEach((el) => (el.textContent = matric));
+  departmentTargets.forEach((el) => (el.textContent = department));
   initialsTargets.forEach((el) => (el.textContent = initials));
 
   const greetEl = document.getElementById("welcomeGreeting");
   if (greetEl) {
-    greetEl.textContent = "welcome Promise Nasikpo";
+    greetEl.textContent = `welcome ${name}`;
   }
 }
 

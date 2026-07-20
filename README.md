@@ -10,9 +10,10 @@ A full-stack, production-ready Student Course Management System for Miva Univers
 **Admin profile used throughout the app:**
 | Field | Value |
 |---|---|
-| Name | Hillel David |
-| Email | s.david2455@miva.edu.ng |
-| Matric Number | 2025/A/CYB/0152 |
+| Name | Abubakar Sadiq Mohammed |
+| Email | a.mohammed0373@miva.edu.ng |
+| Matric Number | 2025/A/CYB/0200 |
+| Department | Cybersecurity |
 
 ---
 

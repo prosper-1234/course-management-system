@@ -1,9 +1,10 @@
 const SESSION_KEY = "scms-session";
 
 const ADMIN_PROFILE = {
-  name: "Promise Nasikpo",
-  email: "p.nasikpo1001@miva.edu.ng",
-  matricNumber: "2025/A/CYB/0295",
+  name: "Abubakar Sadiq Mohammed",
+  email: "a.mohammed0373@miva.edu.ng",
+  matricNumber: "2025/A/CYB/0200",
+  department: "Cybersecurity",
   role: "Administrator",
 };
 
